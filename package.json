@@ -1,0 +1,23 @@
+{
+  "name": "connectfour",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/Zero-void8888888/connectFour#readme",
+  "bugs": {
+    "url": "https://github.com/Zero-void8888888/connectFour/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zero-void8888888/connectFour.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}
