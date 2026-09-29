@@ -119,6 +119,7 @@ const PLAYNEWROUND = () =>{
     let falseInput = true;
     let gameOver = false;
     let input3;
+    let row;
     do{
         input3 = Number(PROMPT("choose a column to drop the token: "));
         if(input3 < 1 || input3 > 7 || Number.isNaN(input3)){
@@ -126,16 +127,17 @@ const PLAYNEWROUND = () =>{
             continue
 }
         falseInput = false;
-        let row =  MARKCOLUMN(input3-1, GETACTIVEPLAYER())
+        row =  MARKCOLUMN(input3-1, GETACTIVEPLAYER())
 
     }while( falseInput == true)
 
     // WINNING will return a bolean that determines whether a win conditioned occured or draw hench the game ending
     gameOver  = WINNING(row,input3-1,GETACTIVEPLAYER(),gameOver);
     if(gameOver == true){
-        return true
+        return gameOver;
     }
     SWITCHACTIVEPLAYER()
+    return PLAYNEWROUND()
 
 }
 
@@ -144,7 +146,7 @@ const WINNING = (row,column, player) => {
    // filter at rows and check each direction of winning
     let counterForPlayerOne = 0;
     let counterForPlayerTwo = 0;
-    let amountOFCells = 42;
+    let amountOfCells = 42;
     let checkingCellNotAvaliable = 0;
    //check for draws
    for(let i = 0; i < 6; i++){
@@ -647,16 +649,17 @@ function main () {
     do{
     gameOver = PLAYNEWROUND();
     if(gameOver == true){
+       PRINTBOARD();
        do{
        console.log("\n");
        let input4 = PROMPT("do you want to play again ( answer with yes or no): ");
        if(input4 == "yes"){
-            gameOver = true;
+            gameOver = false;
             inputIsFalse = false;
             RESETBOARD();
        }
        else if(input4 == "no"){
-        gameOver = false
+        gameOver = true;
         inputIsFalse = false;
        }
        else{
@@ -666,6 +669,7 @@ function main () {
     }
 
     }while(gameOver == false);
+
 }
 
 
