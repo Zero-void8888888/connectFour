@@ -66,6 +66,7 @@ const MARKCOLUMN = (column,player) =>{
     // the value at a position
     board[rowsWithCells.length-1][column] = player.value;
 
+    // returns the row value so it can be used for a relative position when checking winning conditions.
     return rowsWithCells.length-1
 }
 
@@ -121,6 +122,7 @@ const PLAYNEWROUND = () =>{
     let gameOver = false;
     let input3;
     let row;
+    // loop until a valid input is entered
     do{
         input3 = Number(PROMPT("choose a column to drop the token: "));
         if(input3 < 1 || input3 > 7 || Number.isNaN(input3)){
