@@ -63,8 +63,9 @@ const MARKCOLUMN = (column,player) =>{
     if(!rowsWithCells.length) {
         return rowsWithCells.length
     }
-
+    // the value at a position
     board[rowsWithCells.length-1][column] = player.value;
+
     return rowsWithCells.length-1
 }
 
